@@ -12,12 +12,10 @@ public class DemoController {
     private Coach myCoach;
 
     //define a constructor for dependency injection
-    //    @Autowired //tells spring to inject a dependency
+//    @Autowired //tells spring to inject a dependency
 //    public DemoController(Coach theCoach){
 //        this.myCoach=theCoach;
 //    }
-
-
     @Autowired
     public void setCoach(Coach theCoach){
         this.myCoach=theCoach;
