@@ -1,5 +1,6 @@
 package com.prasad.springcoredemo.common;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component //marks the class as spring bean // makes it available for dependency injection
