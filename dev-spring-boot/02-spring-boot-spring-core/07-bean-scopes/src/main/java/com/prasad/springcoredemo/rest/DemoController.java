@@ -11,13 +11,18 @@ public class DemoController {
 
     //define a private field for the dependency
     private Coach myCoach;
+    private Coach aotherCoach;
 
 //    define a constructor for dependency injection
     @Autowired //tells spring to inject a dependency
-    public DemoController(@Qualifier("cricketCoach") Coach theCoach){
+    public DemoController(@Qualifier("cricketCoach") Coach theCoach,
+                          @Qualifier("cricketCoach") Coach theAnotherCoach){
         System.out.println("In Constructor: " + getClass().getSimpleName());
         this.myCoach=theCoach;
+        this.aotherCoach=theAnotherCoach;
     }
+
+
 
 //    @Autowired
 //    public void setCoach(Coach theCoach){
@@ -27,5 +32,10 @@ public class DemoController {
     @GetMapping("/dailyworkout")
     public String getDailyWorkout(){
         return myCoach.getDailyWorkout();
+    }
+
+    @GetMapping("/check")
+    public String check(){
+        return "Comparing beans: myCoach ==anothercoach: " + (myCoach==aotherCoach);
     }
 }
