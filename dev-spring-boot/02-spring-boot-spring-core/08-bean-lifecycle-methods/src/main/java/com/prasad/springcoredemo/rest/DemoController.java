@@ -14,7 +14,7 @@ public class DemoController {
 
 //    define a constructor for dependency injection
     @Autowired //tells spring to inject a dependency
-    public DemoController(@Qualifier("cricketCoach") Coach theCoach{
+    public DemoController(@Qualifier("cricketCoach") Coach theCoach){
         System.out.println("In Constructor: " + getClass().getSimpleName());
         this.myCoach=theCoach;
     }
