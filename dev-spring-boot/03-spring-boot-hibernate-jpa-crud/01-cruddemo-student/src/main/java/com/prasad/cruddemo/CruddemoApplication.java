@@ -19,8 +19,33 @@ public class CruddemoApplication {
 		//lambda expression
 		return runner->{
 			//createStudent(studentDAO);
-			createMultipleStudents(studentDAO);
+			//createMultipleStudents(studentDAO);
+			readStudent(studentDAO);
+
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+
+		// Create a Student Object
+		System.out.println("Creating a student ...");
+		Student tempStudent = new Student("Sai prasad", "Palli", "prasadsai0369@gmail.com");
+
+		// Save the student
+		System.out.println("Saving the student ...");
+		studentDAO.save(tempStudent);
+
+		// Display the id of the saved student
+		int theId = tempStudent.getId();
+		System.out.println("Saved student. Generating id: " + theId);
+
+		// retrieve student based on the id: primary key
+		System.out.println("Retrieving the student with the given id: "+ theId);
+		Student myStudent = studentDAO.findById(theId);
+
+		// display student -----// can we print Student myStudent object? yes because we have toString() method - override
+		System.out.println("Found the student: "+myStudent);
+
 	}
 
 	private void createMultipleStudents(StudentDAO studentDAO) {
