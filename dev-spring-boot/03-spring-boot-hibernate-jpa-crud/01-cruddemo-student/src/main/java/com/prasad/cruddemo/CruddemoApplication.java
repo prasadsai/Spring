@@ -18,8 +18,27 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){ //CommandLineRunner is from the Spring Boot Framework //Inject the studentDAO
 		//lambda expression
 		return runner->{
-			createStudent(studentDAO);
+			//createStudent(studentDAO);
+			createMultipleStudents(studentDAO);
 		};
+	}
+
+	private void createMultipleStudents(StudentDAO studentDAO) {
+
+		// create multiple students
+		System.out.println("Creating 3 student objects ...");
+		Student tempStudent1 = new Student("sai", "prasad", "saiprasad@gmail.com");
+		Student tempStudent2 = new Student("palli", "sai", "pallisai@gmail.com");
+		Student tempStudent3 = new Student("sai", "palli", "saipalli@gmail.com");
+
+		// save the student objects
+		System.out.println("Saving the students ...");
+		studentDAO.save(tempStudent1);
+		studentDAO.save(tempStudent2);
+		studentDAO.save(tempStudent3);
+
+		//
+
 	}
 
 	private void createStudent(StudentDAO studentDAO) {
