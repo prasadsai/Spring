@@ -29,7 +29,7 @@ public class CruddemoApplication {
 
 		// Create a Student Object
 		System.out.println("Creating a student ...");
-		Student tempStudent = new Student("Sai prasad", "Palli", "prasadsai0369@gmail.com");
+		Student tempStudent = new Student("Sai", "sai", "prasadsai@gmail.com");
 
 		// Save the student
 		System.out.println("Saving the student ...");
@@ -43,7 +43,7 @@ public class CruddemoApplication {
 		System.out.println("Retrieving the student with the given id: "+ theId);
 		Student myStudent = studentDAO.findById(theId);
 
-		// display student -----// can we print Student myStudent object? yes because we have toString() method - override
+		// display student -----// can we print Student myStudent object? yes, because we have toString() method - override
 		System.out.println("Found the student: "+myStudent);
 
 	}
